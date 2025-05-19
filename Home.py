@@ -22,9 +22,3 @@ df = cargar_datos()
 df_sorted = df.sort_values("Timestamp")
 gases_cols = ["Acetone (ppm)", "CO2 (ppm)", "Ethanol (ppm)", "NH4 (ppm)", "Tolueno (ppm)"]
 
-# --- Barra lateral para navegación ---
-opcion = st.sidebar.radio("Selecciona una sección:", [
-    "Tendencias Temporales de Gases",
-    "Tendencias de Clima y Químicos",
-    "Gráficos Avanzados"
-])

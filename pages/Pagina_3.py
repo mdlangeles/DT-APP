@@ -4,7 +4,7 @@ import plotly.express as px
 
 # --- Configuración de página ---
 st.set_page_config(page_title="Gráficos Avanzados", layout="wide")
-st.title("📈 Gráficos Avanzados - Gases y Variables Ambientales")
+st.title("Gráficos Avanzados - Gases y Variables Ambientales")
 
 # --- Estilos CSS personalizados ---
 st.markdown("""
@@ -73,7 +73,7 @@ colores_personalizados = px.colors.qualitative.Set2
 
 # --- Filtros dinámicos en sidebar ---
 with st.sidebar:
-    st.markdown("🛠️ **Filtros avanzados**")
+    st.markdown("**Filtros avanzados**")
     meses = df["Mes"].unique().tolist()
     meses_sel = st.multiselect("Filtrar por mes:", meses, default=meses)
     fecha_ini, fecha_fin = st.date_input(
@@ -89,11 +89,11 @@ df_filtrado = df[
 ]
 
 if df_filtrado.empty:
-    st.warning("⚠️ No hay datos disponibles con los filtros seleccionados.")
+    st.warning("No hay datos disponibles con los filtros seleccionados.")
     st.stop()
 
 # --- 1. Tendencias de Humedad y Temperatura en el Tiempo ---
-with st.expander("🌦️ 1. Humedad vs Temperatura en el Tiempo", expanded=True):
+with st.expander("1. Humedad vs Temperatura en el Tiempo", expanded=True):
     fig1 = px.line(
         df_filtrado,
         x="Timestamp",
@@ -105,7 +105,7 @@ with st.expander("🌦️ 1. Humedad vs Temperatura en el Tiempo", expanded=True
     st.plotly_chart(fig1, use_container_width=True)
 
 # --- 2. Porcentaje de Gases (Promedio) ---
-with st.expander("🧪 2. Composición Promedio de Gases (Anillo)", expanded=True):
+with st.expander("2. Composición Promedio de Gases (Anillo)", expanded=True):
     prom_gases = df_filtrado[gases_cols].mean().round(2)
     fig2 = px.pie(
         values=prom_gases,
@@ -118,7 +118,7 @@ with st.expander("🧪 2. Composición Promedio de Gases (Anillo)", expanded=Tru
     st.plotly_chart(fig2, use_container_width=True)
 
 # --- 3. Gases según Humedad ---
-with st.expander("💧 3. Gases en función de la Humedad", expanded=False):
+with st.expander("3. Gases en función de la Humedad", expanded=False):
     df_hum = df_filtrado.sort_values("Humedad (%)")
     fig3 = px.line(
         df_hum,
@@ -130,7 +130,7 @@ with st.expander("💧 3. Gases en función de la Humedad", expanded=False):
     st.plotly_chart(fig3, use_container_width=True)
 
 # --- 4. Gases según Temperatura ---
-with st.expander("🔥 4. Gases en función de la Temperatura", expanded=False):
+with st.expander("4. Gases en función de la Temperatura", expanded=False):
     df_temp = df_filtrado.sort_values("Temperatura (°C)")
     fig4 = px.line(
         df_temp,
@@ -142,7 +142,7 @@ with st.expander("🔥 4. Gases en función de la Temperatura", expanded=False):
     st.plotly_chart(fig4, use_container_width=True)
 
 # --- 5. Tabla resumen rápida ---
-with st.expander("📊 5. Tabla Resumen de Gases"):
+with st.expander("5. Tabla Resumen de Gases"):
     st.dataframe(
         df_filtrado[gases_cols + ["Humedad (%)", "Temperatura (°C)"]]
         .describe()

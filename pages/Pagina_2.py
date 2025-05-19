@@ -4,7 +4,7 @@ import pandas as pd
 
 # --- Configuración general ---
 st.set_page_config(page_title="Tendencias de Clima y Químicos", layout="wide")
-st.title("🌡️ Tendencias de NH4, Tolueno, Humedad y Temperatura")
+st.title("Tendencias de NH4, Tolueno, Humedad y Temperatura")
 
 # --- Función para cargar y preprocesar los datos ---
 @st.cache_data
@@ -19,15 +19,15 @@ df = cargar_datos()
 
 # --- Diccionario para iterar con elegancia y sentido de la estética ---
 variables = {
-    "NH4 (ppm)": "🧪 NH4",
-    "Tolueno (ppm)": "🧪 Tolueno",
-    "Humedad (%)": "💧 Humedad",
-    "Temperatura (°C)": "🌡️ Temperatura"
+    "NH4 (ppm)": " NH4",
+    "Tolueno (ppm)": " Tolueno",
+    "Humedad (%)": " Humedad",
+    "Temperatura (°C)": " Temperatura"
 }
 
 # --- Filtros interactivos ---
 with st.sidebar:
-    st.markdown("🎛️ **Filtros**")
+    st.markdown("**Filtros**")
     meses_unicos = df["Mes"].unique().tolist()
     meses_seleccionados = st.multiselect("Selecciona meses:", meses_unicos, default=meses_unicos)
     rango_fechas = st.date_input(
@@ -44,7 +44,7 @@ df_filtrado = df[
 
 # --- Mostrar advertencia si no hay datos ---
 if df_filtrado.empty:
-    st.warning("⚠️ No hay datos para los filtros seleccionados.")
+    st.warning(" No hay datos para los filtros seleccionados.")
     st.stop()
 
 # --- Visualizaciones en layout responsivo ---
@@ -76,7 +76,7 @@ for i, (columna, nombre_variable) in enumerate(variables.items()):
             )
 
 # --- Tabla resumen de promedios ---
-with st.expander("📊 Promedios Mensuales Filtrados"):
+with st.expander(" Promedios Mensuales Filtrados"):
     resumen = (
         df_filtrado.groupby("Mes")[list(variables.keys())]
         .mean()
