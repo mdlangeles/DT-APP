@@ -61,7 +61,7 @@ python -m streamlit run Home.py
 
 ## ¿Por qué usar Eco13?
 
-- Datos reales recolectados desde sensores en Fundautónoma.  
+- Datos reales recolectados desde un sensor instalado en Fundautónoma (Comuna 13 del oriente de Cali).  
 - Visualización interactiva y clara de los contaminantes (PM2.5, CO₂, NH₃).  
 - Enfocado en zonas vulnerables y con escasa cobertura de monitoreo oficial.  
 - Fomenta la participación ciudadana y la toma de decisiones informadas.
