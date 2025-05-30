@@ -18,7 +18,7 @@ afectan gravemente la **calidad del aire**.
 
 La app permite:
 
-- Recolectar, visualizar y analizar datos de sensores de bajo costo  
+- Visualizar y analizar datos de sensores de bajo costo  
 - Identificar patrones de contaminación  
 - Proponer soluciones estratégicas basadas en datos
 
