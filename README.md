@@ -59,6 +59,27 @@ pip install -r requirements.txt
 python -m streamlit run Home.py
 ```
 
+5. Si gustas ejecutarlo ya con Docker, los pasos recomendados son los siguientes:
+
+**5.1. Abre Docker Desktop** [Docker Downloads](https://www.docker.com/)
+
+**5.2. Construye la imagen:**
+
+```bash
+docker build -t dtapp .
+```
+
+**5.3. Ejecuta el contenedor:**
+
+```bash
+docker run -p 8501:8501 dtapp
+```
+
+**5.4. Abre tu navegador en:**  
+👉 `http://localhost:8501`
+
+---
+
 ## ¿Por qué usar Eco13?
 
 - Datos reales recolectados desde un sensor instalado en Fundautónoma (Comuna 13 del oriente de Cali).  
